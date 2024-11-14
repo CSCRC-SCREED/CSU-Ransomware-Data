@@ -1,0 +1,56 @@
+name: Ransomware Data
+description: This dataset contains features engineered to distinguish between ransomware and goodware activities. Key features include specific system actions like file creation, process creation, registry modifications, and broader system behavior categories like file, network, and process-related events.
+contributors:
+- name: Jamil Ispahany, MD Rafiqul Islam, and Oscar Blessed Deho
+data:
+- name: Ransoware_Data.csv
+  description: This file contains engineered features for distinguishing ransomware from goodware. Each row represents an event, with labels indicating whether it is ransomware or goodware, and features corresponding to selected system actions and behavior categories.
+  path: https://github.com/CSCRC-SCREED/CSU-Ransomware-Data
+  format: csv
+  size: 27.7MB
+  fields:
+  - name: Ware Type
+    description: The label indicating whether the event is related to ransomware or goodware.
+  - name: File_created
+    description: A binary feature indicating whether a file was created during the event.
+  - name: File_Delete_archived
+    description: A binary feature indicating whether a file was archived after being deleted (often seen in ransomware).
+  - name: File_creation_time_changed
+    description: A binary feature indicating whether the file creation time was changed (more common in goodware).
+  - name: Registry_value_set
+    description: A binary feature indicating whether a registry value was set or modified during the event.
+  - name: Process_Create
+    description: A binary feature indicating whether a process was created.
+  - name: Pipe_Created
+    description: A binary feature indicating whether a pipe was created (often seen in ransomware).
+  - name: file-related
+    description: A binary feature that categorizes event types related to file operations such as creation, deletion, or modification.
+  - name: network-related
+    description: A binary feature that categorizes event types related to network activities like connections or protocol information.
+  - name: process-related
+    description: A binary feature that categorizes event types related to processes, such as creation, starting, or access.
+  - name: suspicious_path
+    description: A binary feature that flags executables running from suspicious directories such as 'Temp', 'Downloads', 'AppData', or user directories (often seen in ransomware).
+  - name: system_executable
+    description: A binary feature that flags executables running from trusted system directories such as 'C:\Windows\System32' or 'C:\Program Files' (typically associated with goodware).
+  - name: path_length
+    description: A numerical feature representing the total length (number of characters) in the executable path. Ransomware often uses longer or obfuscated paths.
+  - name: directory_depth
+    description: A numerical feature indicating the number of directories (depth) in the executable path. Ransomware often runs from deeper directory structures.
+  - name: process_name_length
+    description: A numerical feature representing the length of the process name. Ransomware often uses longer, more obfuscated process names.
+  - name: process_vs_parent_freq_ratio
+    description: A numerical feature that represents the ratio of the process name's frequency relative to its parent process's name frequency. A lower ratio may indicate suspicious activity.
+  - name: executable_depth_diff
+    description: A numerical feature that calculates the difference in directory depth between the process executable and its parent executable. Larger differences may indicate ransomware behavior.
+  - name: parent_is_system_executable
+    description: A binary feature indicating whether the parent executable is running from a trusted system directory (e.g., 'C:\Windows\System32').
+  - name: extension_similarity
+    description: A binary feature indicating whether the process and parent process share the same file extension.
+  - name: file_name_entropy
+    description: A numerical feature representing the entropy of the file name, measuring the randomness or complexity of characters in the file name. Higher entropy may indicate obfuscation, often associated with malicious intent.
+license:
+- name: na
+  link: na
+references:
+- name: na
