@@ -7,7 +7,7 @@ data:
   description: This file contains engineered features for distinguishing ransomware from goodware. Each row represents an event, with labels indicating whether it is ransomware or goodware, and features corresponding to selected system actions and behavior categories.
   path: https://github.com/CSCRC-SCREED/CSU-Ransomware-Data
   format: csv
-  size: 27.7MB
+  size: 25MB
   fields:
   - name: Ware Type
     description: The label indicating whether the event is related to ransomware or goodware.
